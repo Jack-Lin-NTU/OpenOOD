@@ -1,6 +1,6 @@
+import os
 from typing import Callable, List, Type
 
-import os
 import numpy as np
 import pandas as pd
 import torch
@@ -9,9 +9,9 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 
 from openood.evaluators.metrics import compute_all_metrics
-from openood.postprocessors import BasePostprocessor
 from openood.networks.ash_net import ASHNet
 from openood.networks.react_net import ReactNet
+from openood.postprocessors import BasePostprocessor
 
 from .datasets import DATA_INFO, data_setup, get_id_ood_dataloader
 from .postprocessor import get_postprocessor
@@ -107,7 +107,6 @@ class Evaluator:
         }
         dataloader_dict = get_id_ood_dataloader(id_name, data_root,
                                                 preprocessor, **loader_kwargs)
-
         # wrap base model to work with certain postprocessors
         if postprocessor_name == 'react':
             net = ReactNet(net)
@@ -369,7 +368,7 @@ class Evaluator:
               flush=True)
         print('AUPR_IN: {:.2f}, AUPR_OUT: {:.2f}'.format(
             100 * aupr_in, 100 * aupr_out),
-              flush=True)
+            flush=True)
         print(u'\u2500' * 70, flush=True)
         print('', flush=True)
 

@@ -1,0 +1,29 @@
+# syntax=docker/dockerfile:experimental
+# CUDA development image for building sources
+FROM nvidia/cuda:12.1.1-cudnn8-devel-ubuntu20.04 as builder
+
+# available options 3.8, 3.9, 3.10, 3.11
+ARG PYTHON_VERSION=3.10
+
+# Set environment variables
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Install and update tools to minimize security vulnerabilities
+RUN apt update -y && apt install -y software-properties-common wget apt-utils patchelf git libprotobuf-dev protobuf-compiler cmake \
+    git bash curl libturbojpeg exiftool ffmpeg poppler-utils \
+    libtiff5-dev libjpeg8-dev libopenjp2-7-dev zlib1g-dev \
+    libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python3-tk \
+    libharfbuzz-dev libfribidi-dev libxcb1-dev python3-pip python3
+RUN unattended-upgrade
+RUN apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /code
+COPY . /code
+RUN pip install pip wheel ipython fire ninja cython tqdm numpy
+RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+RUN pip install -e .
+RUN pip install ftfy regex tqdm
+RUN pip install git+https://github.com/openai/CLIP.git
+
+CMD bash

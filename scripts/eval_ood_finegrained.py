@@ -37,7 +37,7 @@ def update(d, u):
 parser = argparse.ArgumentParser()
 parser.add_argument('--dataname',
                     default='bird-finegrained',
-                    choices=['bird-finegrained', 'butterfly-finegrained'])
+                    choices=['bird-finegrained', 'butterfly-finegrained', 'car-finegrained'])
 parser.add_argument('--arch',
                     default='resnet50',
                     choices=['resnet50', 'swin-t', 'vit-b-16', 'regnet'])

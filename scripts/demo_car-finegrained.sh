@@ -1,0 +1,1 @@
+ipython --pdb -- scripts/eval_ood_finegrained.py --dataname car-finegrained --tvs-pretrained

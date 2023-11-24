@@ -46,6 +46,11 @@ default_preprocessing_dict = {
         'img_size': 224,
         'normalization': [[0.485, 0.456, 0.406], [0.229, 0.224, 0.225]],
     },
+    'car-finegrained': {
+        'pre_size': 256,
+        'img_size': 224,
+        'normalization': [[0.485, 0.456, 0.406], [0.229, 0.224, 0.225]],
+    },
 }
 
 

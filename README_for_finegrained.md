@@ -11,6 +11,7 @@ Put the downloaded datasets to the right place:
 ```text
 data/bird
 data/butterfly
+data/car
 ```
 
 ### 1.2 Preprocess the dataset
@@ -19,6 +20,7 @@ data/butterfly
 pip install ipython
 bash data_processing/process_bird.sh
 bash data_processing/process_butterfly.sh
+bash data_processing/process_car.sh
 ```
 
 ## 2. Evalation
@@ -33,4 +35,5 @@ Noted: I use docker to run the script for the convenience of the environment.
 bash docker/build.sh
 bash docker/run.sh bash scripts/demo_bird-finegrained.sh
 bash docker/run.sh bash scripts/demo_butterfly-finegrained.sh
+bash docker/run.sh bash scripts/demo_car-finegrained.sh
 ```

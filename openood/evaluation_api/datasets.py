@@ -409,6 +409,58 @@ DATA_INFO = {
             }
         }
     },
+    'car-finegrained': {
+        'num_classes': 200,
+        'id': {
+            'train': {
+                'data_dir': 'fine-grained/processed/images_finegrained',
+                'imglist_path': 'fine-grained/processed/benchmark_imglist/train_StandCars.txt'
+            },
+            'val': {
+                'data_dir': 'fine-grained/processed/images_finegrained',
+                'imglist_path': 'fine-grained/processed/benchmark_imglist/test_StandCars.txt'
+            },
+            'test': {
+                'data_dir': 'fine-grained/processed/images_finegrained',
+                'imglist_path': 'fine-grained/processed/benchmark_imglist/test_StandCars.txt'
+            }
+        },
+        'csid': {
+            'datasets': [],
+        },
+        'ood': {
+            'val': {
+                'data_dir': 'images_largescale/',
+                'imglist_path': 'benchmark_imglist/imagenet/val_openimage_o.txt'
+            },
+            'near': {
+                'datasets': ['compcar'],
+                'compcar': {
+                    'data_dir': 'fine-grained/processed/images_finegrained',
+                    'imglist_path': 'fine-grained/processed/benchmark_imglist/test_compcar.txt'
+                },
+            },
+            'far': {
+                'datasets': ['mnist', 'svhn', 'texture', 'places365'],
+                'mnist': {
+                    'data_dir': 'images_classic/',
+                    'imglist_path': 'benchmark_imglist/cifar10/test_mnist.txt'
+                },
+                'svhn': {
+                    'data_dir': 'images_classic/',
+                    'imglist_path': 'benchmark_imglist/cifar10/test_svhn.txt'
+                },
+                'texture': {
+                    'data_dir': 'images_classic/',
+                    'imglist_path': 'benchmark_imglist/cifar10/test_texture.txt'
+                },
+                'places365': {
+                    'data_dir': 'images_classic/',
+                    'imglist_path': 'benchmark_imglist/cifar10/test_places365.txt'
+                },
+            }
+        }
+    },
 }
 
 download_id_dict = {
@@ -452,7 +504,15 @@ dir_dict = {
         'imagenet_r',
     ],
     'images_medical/': ['actmed', 'bimcv', 'ct', 'hannover', 'xraybone'],
-    'fine-grained/processed/images_finegrained': ['birdsnap', 'NABird_filtered', 'CUB_200_2011', 'ETHEC_dataset', 'Butterfly200'],
+    'fine-grained/processed/images_finegrained': [
+        'birdsnap',
+        'NABird_filtered',
+        'CUB_200_2011',
+        'ETHEC_dataset',
+        'Butterfly200',
+        'StandCars',
+        'compcar',
+    ],
 }
 
 benchmarks_dict = {
@@ -470,6 +530,7 @@ benchmarks_dict = {
     ],
     'bird-finegrained': ['CUB_200_2011', 'birdsnap', 'NABird_filtered', 'mnist', 'svhn', 'texture', 'places365'],
     'butterfly-finegrained': ['Butterfly200', 'ETHEC_dataset', 'mnist', 'svhn', 'texture', 'places365'],
+    'car-finegrained': ['StandCars', 'compcar', 'mnist', 'svhn', 'texture', 'places365'],
 }
 
 

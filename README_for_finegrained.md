@@ -37,3 +37,11 @@ bash docker/run.sh bash scripts/demo_bird-finegrained.sh
 bash docker/run.sh bash scripts/demo_butterfly-finegrained.sh
 bash docker/run.sh bash scripts/demo_car-finegrained.sh
 ```
+
+## 3. Train
+
+Please refer to the [script](./scripts/train_bird-finegrained.sh)
+
+```bash
+bash scripts/train_bird-finegrained.sh
+```

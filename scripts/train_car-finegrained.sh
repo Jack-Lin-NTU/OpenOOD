@@ -1,5 +1,5 @@
 python3 main.py --config \
-    configs/datasets/fine-grained/bird.yml \
+    configs/datasets/fine-grained/car.yml \
     configs/preprocessors/base_preprocessor.yml \
-    configs/networks/resnet18_224x224.yml \
+    configs/networks/resnet18_64x64.yml \
     configs/pipelines/train/baseline.yml

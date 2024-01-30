@@ -11,7 +11,7 @@ def main(
     output_image_folder='data/fine-grained/processed/images_finegrained',
 ):
     data_folder = Path(data_folder)
-    train_files = list(data_folder.rglob('images/**/*.jpg'))
+    train_files = list(data_folder.rglob('train/**/*.jpg'))
     test_files = list(data_folder.rglob('test/**/*.jpg'))
     output_folder = Path(output_folder)
     output_folder.mkdir(exist_ok=True, parents=True)
